@@ -1,0 +1,1672 @@
+
+Bernard_Integral_v1.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000009f0  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000076  00800060  000009f0  00000a84  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000003  008000d6  008000d6  00000afa  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000afa  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000b2c  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000140  00000000  00000000  00000b68  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00001c9f  00000000  00000000  00000ca8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000008a0  00000000  00000000  00002947  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000de4  00000000  00000000  000031e7  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000240  00000000  00000000  00003fcc  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000006f7  00000000  00000000  0000420c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000007a5  00000000  00000000  00004903  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000100  00000000  00000000  000050a8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 32 00 	jmp	0x64	; 0x64 <__ctors_end>
+   4:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+   8:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+   c:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  10:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  14:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  18:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  1c:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  20:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  24:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  28:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  2c:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  30:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  34:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  38:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  3c:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  40:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  44:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  48:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  4c:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  50:	0c 94 4f 00 	jmp	0x9e	; 0x9e <__bad_interrupt>
+  54:	b4 01       	movw	r22, r8
+  56:	ab 01       	movw	r20, r22
+  58:	bd 01       	movw	r22, r26
+  5a:	c6 01       	movw	r24, r12
+  5c:	d8 01       	movw	r26, r16
+  5e:	e1 01       	movw	r28, r2
+  60:	ea 01       	movw	r28, r20
+  62:	cf 01       	movw	r24, r30
+
+00000064 <__ctors_end>:
+  64:	11 24       	eor	r1, r1
+  66:	1f be       	out	0x3f, r1	; 63
+  68:	cf e5       	ldi	r28, 0x5F	; 95
+  6a:	d8 e0       	ldi	r29, 0x08	; 8
+  6c:	de bf       	out	0x3e, r29	; 62
+  6e:	cd bf       	out	0x3d, r28	; 61
+
+00000070 <__do_copy_data>:
+  70:	10 e0       	ldi	r17, 0x00	; 0
+  72:	a0 e6       	ldi	r26, 0x60	; 96
+  74:	b0 e0       	ldi	r27, 0x00	; 0
+  76:	e0 ef       	ldi	r30, 0xF0	; 240
+  78:	f9 e0       	ldi	r31, 0x09	; 9
+  7a:	02 c0       	rjmp	.+4      	; 0x80 <__do_copy_data+0x10>
+  7c:	05 90       	lpm	r0, Z+
+  7e:	0d 92       	st	X+, r0
+  80:	a6 3d       	cpi	r26, 0xD6	; 214
+  82:	b1 07       	cpc	r27, r17
+  84:	d9 f7       	brne	.-10     	; 0x7c <__do_copy_data+0xc>
+
+00000086 <__do_clear_bss>:
+  86:	20 e0       	ldi	r18, 0x00	; 0
+  88:	a6 ed       	ldi	r26, 0xD6	; 214
+  8a:	b0 e0       	ldi	r27, 0x00	; 0
+  8c:	01 c0       	rjmp	.+2      	; 0x90 <.do_clear_bss_start>
+
+0000008e <.do_clear_bss_loop>:
+  8e:	1d 92       	st	X+, r1
+
+00000090 <.do_clear_bss_start>:
+  90:	a9 3d       	cpi	r26, 0xD9	; 217
+  92:	b2 07       	cpc	r27, r18
+  94:	e1 f7       	brne	.-8      	; 0x8e <.do_clear_bss_loop>
+  96:	0e 94 eb 04 	call	0x9d6	; 0x9d6 <main>
+  9a:	0c 94 f6 04 	jmp	0x9ec	; 0x9ec <_exit>
+
+0000009e <__bad_interrupt>:
+  9e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a2 <get_valve_mode>:
+local_command  l_command = L_UNDEFINED;
+/*****************valve mode********************/
+void get_valve_mode(void){
+	
+	
+       if(DIO_VoidGetPinValue(L_S_HANDWHEEL_PORT,L_S_HANDWHEEL)==0){
+  a2:	61 e0       	ldi	r22, 0x01	; 1
+  a4:	87 e0       	ldi	r24, 0x07	; 7
+  a6:	0e 94 e2 03 	call	0x7c4	; 0x7c4 <DIO_VoidGetPinValue>
+  aa:	81 11       	cpse	r24, r1
+  ac:	08 c0       	rjmp	.+16     	; 0xbe <get_valve_mode+0x1c>
+	       
+	       v_mode=H_WHEEL;
+  ae:	87 e0       	ldi	r24, 0x07	; 7
+  b0:	80 93 d6 00 	sts	0x00D6, r24	; 0x8000d6 <__data_end>
+       DIO_Void_ClearPin(AVAIL_FBK_PORT,AVAIL_FBK); }
+  b4:	62 e0       	ldi	r22, 0x02	; 2
+  b6:	88 e0       	ldi	r24, 0x08	; 8
+  b8:	0e 94 a7 03 	call	0x74e	; 0x74e <DIO_Void_ClearPin>
+  bc:	08 95       	ret
+	          
+        else if(DIO_VoidGetPinValue(L_S_CLOSE_TORQUE_PORT,L_S_CLOSE_TORQUE)==1){
+  be:	64 e0       	ldi	r22, 0x04	; 4
+  c0:	87 e0       	ldi	r24, 0x07	; 7
+  c2:	0e 94 e2 03 	call	0x7c4	; 0x7c4 <DIO_VoidGetPinValue>
+  c6:	81 30       	cpi	r24, 0x01	; 1
+  c8:	41 f4       	brne	.+16     	; 0xda <get_valve_mode+0x38>
+	    	
+	    	v_mode=C_TORQUE;
+  ca:	86 e0       	ldi	r24, 0x06	; 6
+  cc:	80 93 d6 00 	sts	0x00D6, r24	; 0x8000d6 <__data_end>
+        DIO_Void_ClearPin(AVAIL_FBK_PORT,AVAIL_FBK); }
+  d0:	62 e0       	ldi	r22, 0x02	; 2
+  d2:	88 e0       	ldi	r24, 0x08	; 8
+  d4:	0e 94 a7 03 	call	0x74e	; 0x74e <DIO_Void_ClearPin>
+  d8:	08 95       	ret
+		
+		else if(DIO_VoidGetPinValue(L_S_OPEN_TORQUE_PORT,L_S_OPEN_TORQUE)==1){
+  da:	65 e0       	ldi	r22, 0x05	; 5
+  dc:	87 e0       	ldi	r24, 0x07	; 7
+  de:	0e 94 e2 03 	call	0x7c4	; 0x7c4 <DIO_VoidGetPinValue>
+  e2:	81 30       	cpi	r24, 0x01	; 1
+  e4:	41 f4       	brne	.+16     	; 0xf6 <get_valve_mode+0x54>
+			
+			v_mode=O_TORQUE;
+  e6:	85 e0       	ldi	r24, 0x05	; 5
+  e8:	80 93 d6 00 	sts	0x00D6, r24	; 0x8000d6 <__data_end>
+		DIO_Void_ClearPin(AVAIL_FBK_PORT,AVAIL_FBK); }
+  ec:	62 e0       	ldi	r22, 0x02	; 2
+  ee:	88 e0       	ldi	r24, 0x08	; 8
+  f0:	0e 94 a7 03 	call	0x74e	; 0x74e <DIO_Void_ClearPin>
+  f4:	08 95       	ret
+
+		else if(DIO_VoidGetPinValue(L_S_THERMAL_PORT,L_S_THERMAL)==1){
+  f6:	60 e0       	ldi	r22, 0x00	; 0
+  f8:	87 e0       	ldi	r24, 0x07	; 7
+  fa:	0e 94 e2 03 	call	0x7c4	; 0x7c4 <DIO_VoidGetPinValue>
+  fe:	81 30       	cpi	r24, 0x01	; 1
+ 100:	41 f4       	brne	.+16     	; 0x112 <get_valve_mode+0x70>
+			
+			v_mode=TH_FAULT;
+ 102:	84 e0       	ldi	r24, 0x04	; 4
+ 104:	80 93 d6 00 	sts	0x00D6, r24	; 0x8000d6 <__data_end>
+			DIO_Void_ClearPin(AVAIL_FBK_PORT,AVAIL_FBK); }
+ 108:	62 e0       	ldi	r22, 0x02	; 2
+ 10a:	88 e0       	ldi	r24, 0x08	; 8
+ 10c:	0e 94 a7 03 	call	0x74e	; 0x74e <DIO_Void_ClearPin>
+ 110:	08 95       	ret
+	
+	else if(DIO_VoidGetPinValue(L_C_REMOTE_PORT,L_C_REMOTE)==0){
+ 112:	60 e0       	ldi	r22, 0x00	; 0
+ 114:	85 e0       	ldi	r24, 0x05	; 5
+ 116:	0e 94 e2 03 	call	0x7c4	; 0x7c4 <DIO_VoidGetPinValue>
+ 11a:	81 11       	cpse	r24, r1
+ 11c:	07 c0       	rjmp	.+14     	; 0x12c <get_valve_mode+0x8a>
+		
+		v_mode=REMOTE;
+ 11e:	10 92 d6 00 	sts	0x00D6, r1	; 0x8000d6 <__data_end>
+		DIO_Void_SetPin(AVAIL_FBK_PORT,AVAIL_FBK);
+ 122:	62 e0       	ldi	r22, 0x02	; 2
+ 124:	88 e0       	ldi	r24, 0x08	; 8
+ 126:	0e 94 70 03 	call	0x6e0	; 0x6e0 <DIO_Void_SetPin>
+ 12a:	08 95       	ret
+	}else if (DIO_VoidGetPinValue(L_C_LOCAL_PORT,L_C_LOCAL)==0)
+ 12c:	61 e0       	ldi	r22, 0x01	; 1
+ 12e:	85 e0       	ldi	r24, 0x05	; 5
+ 130:	0e 94 e2 03 	call	0x7c4	; 0x7c4 <DIO_VoidGetPinValue>
+ 134:	81 11       	cpse	r24, r1
+ 136:	08 c0       	rjmp	.+16     	; 0x148 <get_valve_mode+0xa6>
+	{
+		v_mode=LOCAL;
+ 138:	81 e0       	ldi	r24, 0x01	; 1
+ 13a:	80 93 d6 00 	sts	0x00D6, r24	; 0x8000d6 <__data_end>
+		DIO_Void_ClearPin(AVAIL_FBK_PORT,AVAIL_FBK);
+ 13e:	62 e0       	ldi	r22, 0x02	; 2
+ 140:	88 e0       	ldi	r24, 0x08	; 8
+ 142:	0e 94 a7 03 	call	0x74e	; 0x74e <DIO_Void_ClearPin>
+ 146:	08 95       	ret
+	}else if (DIO_VoidGetPinValue(L_C_OFF_PORT,L_C_OFF)==0)
+ 148:	62 e0       	ldi	r22, 0x02	; 2
+ 14a:	85 e0       	ldi	r24, 0x05	; 5
+ 14c:	0e 94 e2 03 	call	0x7c4	; 0x7c4 <DIO_VoidGetPinValue>
+ 150:	81 11       	cpse	r24, r1
+ 152:	08 c0       	rjmp	.+16     	; 0x164 <get_valve_mode+0xc2>
+	{
+		v_mode=OFF; 
+ 154:	82 e0       	ldi	r24, 0x02	; 2
+ 156:	80 93 d6 00 	sts	0x00D6, r24	; 0x8000d6 <__data_end>
+		DIO_Void_ClearPin(AVAIL_FBK_PORT,AVAIL_FBK);
+ 15a:	62 e0       	ldi	r22, 0x02	; 2
+ 15c:	88 e0       	ldi	r24, 0x08	; 8
+ 15e:	0e 94 a7 03 	call	0x74e	; 0x74e <DIO_Void_ClearPin>
+ 162:	08 95       	ret
+	}else{
+		v_mode=STOP;
+ 164:	83 e0       	ldi	r24, 0x03	; 3
+ 166:	80 93 d6 00 	sts	0x00D6, r24	; 0x8000d6 <__data_end>
+		DIO_Void_ClearPin(AVAIL_FBK_PORT,AVAIL_FBK);
+ 16a:	62 e0       	ldi	r22, 0x02	; 2
+ 16c:	88 e0       	ldi	r24, 0x08	; 8
+ 16e:	0e 94 a7 03 	call	0x74e	; 0x74e <DIO_Void_ClearPin>
+ 172:	08 95       	ret
+
+00000174 <get_valve_position>:
+	
+/**********valve position****/
+	
+
+void get_valve_position(void){
+	if (DIO_VoidGetPinValue(L_S_OPENED_PORT,L_S_OPENED)==1 && DIO_VoidGetPinValue(L_S_CLOSED_PORT,L_S_CLOSED)==1)
+ 174:	63 e0       	ldi	r22, 0x03	; 3
+ 176:	87 e0       	ldi	r24, 0x07	; 7
+ 178:	0e 94 e2 03 	call	0x7c4	; 0x7c4 <DIO_VoidGetPinValue>
+ 17c:	81 30       	cpi	r24, 0x01	; 1
+ 17e:	51 f4       	brne	.+20     	; 0x194 <get_valve_position+0x20>
+ 180:	62 e0       	ldi	r22, 0x02	; 2
+ 182:	87 e0       	ldi	r24, 0x07	; 7
+ 184:	0e 94 e2 03 	call	0x7c4	; 0x7c4 <DIO_VoidGetPinValue>
+ 188:	81 30       	cpi	r24, 0x01	; 1
+ 18a:	21 f4       	brne	.+8      	; 0x194 <get_valve_position+0x20>
+	{  
+		v_position = UNDEFINED;
+ 18c:	83 e0       	ldi	r24, 0x03	; 3
+ 18e:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <v_position>
+ 192:	08 95       	ret
+		
+	}else if (DIO_VoidGetPinValue(L_S_OPENED_PORT,L_S_OPENED)==1)
+ 194:	63 e0       	ldi	r22, 0x03	; 3
+ 196:	87 e0       	ldi	r24, 0x07	; 7
+ 198:	0e 94 e2 03 	call	0x7c4	; 0x7c4 <DIO_VoidGetPinValue>
+ 19c:	81 30       	cpi	r24, 0x01	; 1
+ 19e:	19 f4       	brne	.+6      	; 0x1a6 <get_valve_position+0x32>
+	{
+		v_position = OPENED;
+ 1a0:	10 92 62 00 	sts	0x0062, r1	; 0x800062 <v_position>
+ 1a4:	08 95       	ret
+	}else if(DIO_VoidGetPinValue(L_S_CLOSED_PORT,L_S_CLOSED)==1){
+ 1a6:	62 e0       	ldi	r22, 0x02	; 2
+ 1a8:	87 e0       	ldi	r24, 0x07	; 7
+ 1aa:	0e 94 e2 03 	call	0x7c4	; 0x7c4 <DIO_VoidGetPinValue>
+ 1ae:	81 30       	cpi	r24, 0x01	; 1
+ 1b0:	19 f4       	brne	.+6      	; 0x1b8 <get_valve_position+0x44>
+		
+		v_position =CLOSED;
+ 1b2:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <v_position>
+ 1b6:	08 95       	ret
+	}else{
+		
+     v_position= TRAVEL;
+ 1b8:	82 e0       	ldi	r24, 0x02	; 2
+ 1ba:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <v_position>
+ 1be:	08 95       	ret
+
+000001c0 <get_remote_command>:
+	
+}
+/**************remote command**********************/
+
+void get_remote_command(void){
+	if (DIO_VoidGetPinValue(R_OPEN_COMMAND_PORT,R_OPEN_COMMAND)==0)
+ 1c0:	65 e0       	ldi	r22, 0x05	; 5
+ 1c2:	88 e0       	ldi	r24, 0x08	; 8
+ 1c4:	0e 94 e2 03 	call	0x7c4	; 0x7c4 <DIO_VoidGetPinValue>
+ 1c8:	81 11       	cpse	r24, r1
+ 1ca:	03 c0       	rjmp	.+6      	; 0x1d2 <get_remote_command+0x12>
+	{
+		r_command = R_OPEN;	
+ 1cc:	10 92 61 00 	sts	0x0061, r1	; 0x800061 <r_command>
+ 1d0:	08 95       	ret
+	}else if (DIO_VoidGetPinValue(R_CLOSE_COMMAND_PORT,R_CLOSE_COMMAND)==0)
+ 1d2:	66 e0       	ldi	r22, 0x06	; 6
+ 1d4:	88 e0       	ldi	r24, 0x08	; 8
+ 1d6:	0e 94 e2 03 	call	0x7c4	; 0x7c4 <DIO_VoidGetPinValue>
+ 1da:	81 11       	cpse	r24, r1
+ 1dc:	04 c0       	rjmp	.+8      	; 0x1e6 <get_remote_command+0x26>
+	{
+		r_command = R_CLOSE;
+ 1de:	81 e0       	ldi	r24, 0x01	; 1
+ 1e0:	80 93 61 00 	sts	0x0061, r24	; 0x800061 <r_command>
+ 1e4:	08 95       	ret
+	}else{
+		r_command =R_UNDEFINED;
+ 1e6:	82 e0       	ldi	r24, 0x02	; 2
+ 1e8:	80 93 61 00 	sts	0x0061, r24	; 0x800061 <r_command>
+ 1ec:	08 95       	ret
+
+000001ee <get_local_command>:
+
+/****local command ******/
+
+void get_local_command(void){
+	
+		if (DIO_VoidGetPinValue(L_C_OPEN_PORT,L_C_OPEN)==0)
+ 1ee:	63 e0       	ldi	r22, 0x03	; 3
+ 1f0:	85 e0       	ldi	r24, 0x05	; 5
+ 1f2:	0e 94 e2 03 	call	0x7c4	; 0x7c4 <DIO_VoidGetPinValue>
+ 1f6:	81 11       	cpse	r24, r1
+ 1f8:	03 c0       	rjmp	.+6      	; 0x200 <get_local_command+0x12>
+		{
+			l_command = L_OPEN;
+ 1fa:	10 92 60 00 	sts	0x0060, r1	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 1fe:	08 95       	ret
+		}else if (DIO_VoidGetPinValue(L_C_CLOSE_PORT,L_C_CLOSE)==0)
+ 200:	64 e0       	ldi	r22, 0x04	; 4
+ 202:	85 e0       	ldi	r24, 0x05	; 5
+ 204:	0e 94 e2 03 	call	0x7c4	; 0x7c4 <DIO_VoidGetPinValue>
+ 208:	81 11       	cpse	r24, r1
+ 20a:	04 c0       	rjmp	.+8      	; 0x214 <get_local_command+0x26>
+		{
+			l_command = L_CLOSE;
+ 20c:	81 e0       	ldi	r24, 0x01	; 1
+ 20e:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 212:	08 95       	ret
+		}else{
+			l_command=L_UNDEFINED;
+ 214:	82 e0       	ldi	r24, 0x02	; 2
+ 216:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 21a:	08 95       	ret
+
+0000021c <valve_LCD_init>:
+	
+}
+/****LCD Initialization***/	
+
+void valve_LCD_init(void){
+	LCD_voidClearScreen();
+ 21c:	0e 94 bf 04 	call	0x97e	; 0x97e <LCD_voidClearScreen>
+	LCD_voidSetCursor(0,6);
+ 220:	66 e0       	ldi	r22, 0x06	; 6
+ 222:	80 e0       	ldi	r24, 0x00	; 0
+ 224:	0e 94 d6 04 	call	0x9ac	; 0x9ac <LCD_voidSetCursor>
+	LCD_voidSendString("PSEP");
+ 228:	83 e6       	ldi	r24, 0x63	; 99
+ 22a:	90 e0       	ldi	r25, 0x00	; 0
+ 22c:	0e 94 c3 04 	call	0x986	; 0x986 <LCD_voidSendString>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 230:	2f ef       	ldi	r18, 0xFF	; 255
+ 232:	8d e2       	ldi	r24, 0x2D	; 45
+ 234:	92 e2       	ldi	r25, 0x22	; 34
+ 236:	21 50       	subi	r18, 0x01	; 1
+ 238:	80 40       	sbci	r24, 0x00	; 0
+ 23a:	90 40       	sbci	r25, 0x00	; 0
+ 23c:	e1 f7       	brne	.-8      	; 0x236 <valve_LCD_init+0x1a>
+ 23e:	00 c0       	rjmp	.+0      	; 0x240 <valve_LCD_init+0x24>
+ 240:	00 00       	nop
+	_delay_ms(700);
+	LCD_voidClearScreen();
+ 242:	0e 94 bf 04 	call	0x97e	; 0x97e <LCD_voidClearScreen>
+	LCD_voidSetCursor(0,0);
+ 246:	60 e0       	ldi	r22, 0x00	; 0
+ 248:	80 e0       	ldi	r24, 0x00	; 0
+ 24a:	0e 94 d6 04 	call	0x9ac	; 0x9ac <LCD_voidSetCursor>
+	LCD_voidSendString("Status:");
+ 24e:	88 e6       	ldi	r24, 0x68	; 104
+ 250:	90 e0       	ldi	r25, 0x00	; 0
+ 252:	0e 94 c3 04 	call	0x986	; 0x986 <LCD_voidSendString>
+	LCD_voidSetCursor(1,0);
+ 256:	60 e0       	ldi	r22, 0x00	; 0
+ 258:	81 e0       	ldi	r24, 0x01	; 1
+ 25a:	0e 94 d6 04 	call	0x9ac	; 0x9ac <LCD_voidSetCursor>
+	LCD_voidSendString("Position:");	
+ 25e:	80 e7       	ldi	r24, 0x70	; 112
+ 260:	90 e0       	ldi	r25, 0x00	; 0
+ 262:	0e 94 c3 04 	call	0x986	; 0x986 <LCD_voidSendString>
+ 266:	08 95       	ret
+
+00000268 <valve_DI_init>:
+/****valve DI initialization***/
+
+
+void valve_DI_init(void){
+	
+	DIO_Void_SetPin(R_CLOSE_COMMAND_PORT,R_CLOSE_COMMAND);
+ 268:	66 e0       	ldi	r22, 0x06	; 6
+ 26a:	88 e0       	ldi	r24, 0x08	; 8
+ 26c:	0e 94 70 03 	call	0x6e0	; 0x6e0 <DIO_Void_SetPin>
+	DIO_Void_SetPin(R_OPEN_COMMAND_PORT,R_OPEN_COMMAND);
+ 270:	65 e0       	ldi	r22, 0x05	; 5
+ 272:	88 e0       	ldi	r24, 0x08	; 8
+ 274:	0e 94 70 03 	call	0x6e0	; 0x6e0 <DIO_Void_SetPin>
+	DIO_Void_SetPin(L_C_REMOTE_PORT,L_C_REMOTE);
+ 278:	60 e0       	ldi	r22, 0x00	; 0
+ 27a:	85 e0       	ldi	r24, 0x05	; 5
+ 27c:	0e 94 70 03 	call	0x6e0	; 0x6e0 <DIO_Void_SetPin>
+	DIO_Void_SetPin(L_C_OFF_PORT,L_C_OFF);
+ 280:	62 e0       	ldi	r22, 0x02	; 2
+ 282:	85 e0       	ldi	r24, 0x05	; 5
+ 284:	0e 94 70 03 	call	0x6e0	; 0x6e0 <DIO_Void_SetPin>
+	DIO_Void_SetPin(L_C_LOCAL_PORT,L_C_LOCAL);
+ 288:	61 e0       	ldi	r22, 0x01	; 1
+ 28a:	85 e0       	ldi	r24, 0x05	; 5
+ 28c:	0e 94 70 03 	call	0x6e0	; 0x6e0 <DIO_Void_SetPin>
+	DIO_Void_SetPin(L_C_OPEN_PORT,L_C_OPEN);
+ 290:	63 e0       	ldi	r22, 0x03	; 3
+ 292:	85 e0       	ldi	r24, 0x05	; 5
+ 294:	0e 94 70 03 	call	0x6e0	; 0x6e0 <DIO_Void_SetPin>
+	DIO_Void_SetPin(L_C_CLOSE_PORT,L_C_CLOSE);
+ 298:	64 e0       	ldi	r22, 0x04	; 4
+ 29a:	85 e0       	ldi	r24, 0x05	; 5
+ 29c:	0e 94 70 03 	call	0x6e0	; 0x6e0 <DIO_Void_SetPin>
+	DIO_Void_SetPin(L_S_THERMAL_PORT,L_S_THERMAL);
+ 2a0:	60 e0       	ldi	r22, 0x00	; 0
+ 2a2:	87 e0       	ldi	r24, 0x07	; 7
+ 2a4:	0e 94 70 03 	call	0x6e0	; 0x6e0 <DIO_Void_SetPin>
+	DIO_Void_SetPin(L_S_HANDWHEEL_PORT,L_S_HANDWHEEL);
+ 2a8:	61 e0       	ldi	r22, 0x01	; 1
+ 2aa:	87 e0       	ldi	r24, 0x07	; 7
+ 2ac:	0e 94 70 03 	call	0x6e0	; 0x6e0 <DIO_Void_SetPin>
+	DIO_Void_SetPin(L_S_CLOSED_PORT,L_S_CLOSED);
+ 2b0:	62 e0       	ldi	r22, 0x02	; 2
+ 2b2:	87 e0       	ldi	r24, 0x07	; 7
+ 2b4:	0e 94 70 03 	call	0x6e0	; 0x6e0 <DIO_Void_SetPin>
+	DIO_Void_SetPin(L_S_OPENED_PORT,L_S_OPENED);
+ 2b8:	63 e0       	ldi	r22, 0x03	; 3
+ 2ba:	87 e0       	ldi	r24, 0x07	; 7
+ 2bc:	0e 94 70 03 	call	0x6e0	; 0x6e0 <DIO_Void_SetPin>
+	DIO_Void_SetPin(L_S_CLOSE_TORQUE_PORT,L_S_CLOSE_TORQUE);
+ 2c0:	64 e0       	ldi	r22, 0x04	; 4
+ 2c2:	87 e0       	ldi	r24, 0x07	; 7
+ 2c4:	0e 94 70 03 	call	0x6e0	; 0x6e0 <DIO_Void_SetPin>
+	DIO_Void_SetPin(L_S_OPEN_TORQUE_PORT,L_S_OPEN_TORQUE);	
+ 2c8:	65 e0       	ldi	r22, 0x05	; 5
+ 2ca:	87 e0       	ldi	r24, 0x07	; 7
+ 2cc:	0e 94 70 03 	call	0x6e0	; 0x6e0 <DIO_Void_SetPin>
+ 2d0:	08 95       	ret
+
+000002d2 <valve_drivers_init>:
+}
+
+/*****valve driver initialization****/
+
+void valve_drivers_init(void){	
+	DIO_Void_Init();
+ 2d2:	0e 94 68 03 	call	0x6d0	; 0x6d0 <DIO_Void_Init>
+	LCD_Void_Init();
+ 2d6:	0e 94 a3 04 	call	0x946	; 0x946 <LCD_Void_Init>
+	valve_DI_init();
+ 2da:	0e 94 34 01 	call	0x268	; 0x268 <valve_DI_init>
+ 2de:	08 95       	ret
+
+000002e0 <print_position>:
+}
+/******print VALVE position*********/
+
+void print_position(void){
+	
+	switch(v_position){
+ 2e0:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <v_position>
+ 2e4:	81 30       	cpi	r24, 0x01	; 1
+ 2e6:	31 f0       	breq	.+12     	; 0x2f4 <print_position+0x14>
+ 2e8:	70 f0       	brcs	.+28     	; 0x306 <print_position+0x26>
+ 2ea:	82 30       	cpi	r24, 0x02	; 2
+ 2ec:	a9 f0       	breq	.+42     	; 0x318 <print_position+0x38>
+ 2ee:	83 30       	cpi	r24, 0x03	; 3
+ 2f0:	e1 f0       	breq	.+56     	; 0x32a <print_position+0x4a>
+ 2f2:	08 95       	ret
+		case CLOSED:
+		LCD_voidSetCursor(1,9);
+ 2f4:	69 e0       	ldi	r22, 0x09	; 9
+ 2f6:	81 e0       	ldi	r24, 0x01	; 1
+ 2f8:	0e 94 d6 04 	call	0x9ac	; 0x9ac <LCD_voidSetCursor>
+		LCD_voidSendString("Closed");
+ 2fc:	8a e7       	ldi	r24, 0x7A	; 122
+ 2fe:	90 e0       	ldi	r25, 0x00	; 0
+ 300:	0e 94 c3 04 	call	0x986	; 0x986 <LCD_voidSendString>
+		break;
+ 304:	08 95       	ret
+		case OPENED:
+		LCD_voidSetCursor(1,9);
+ 306:	69 e0       	ldi	r22, 0x09	; 9
+ 308:	81 e0       	ldi	r24, 0x01	; 1
+ 30a:	0e 94 d6 04 	call	0x9ac	; 0x9ac <LCD_voidSetCursor>
+		LCD_voidSendString("Opened");
+ 30e:	81 e8       	ldi	r24, 0x81	; 129
+ 310:	90 e0       	ldi	r25, 0x00	; 0
+ 312:	0e 94 c3 04 	call	0x986	; 0x986 <LCD_voidSendString>
+		break;
+ 316:	08 95       	ret
+		case TRAVEL:
+		LCD_voidSetCursor(1,9);
+ 318:	69 e0       	ldi	r22, 0x09	; 9
+ 31a:	81 e0       	ldi	r24, 0x01	; 1
+ 31c:	0e 94 d6 04 	call	0x9ac	; 0x9ac <LCD_voidSetCursor>
+		LCD_voidSendString("Travel");
+ 320:	88 e8       	ldi	r24, 0x88	; 136
+ 322:	90 e0       	ldi	r25, 0x00	; 0
+ 324:	0e 94 c3 04 	call	0x986	; 0x986 <LCD_voidSendString>
+		break;
+ 328:	08 95       	ret
+		case UNDEFINED :
+		LCD_voidSetCursor(1,9);
+ 32a:	69 e0       	ldi	r22, 0x09	; 9
+ 32c:	81 e0       	ldi	r24, 0x01	; 1
+ 32e:	0e 94 d6 04 	call	0x9ac	; 0x9ac <LCD_voidSetCursor>
+		LCD_voidSendString("Undefi");
+ 332:	8f e8       	ldi	r24, 0x8F	; 143
+ 334:	90 e0       	ldi	r25, 0x00	; 0
+ 336:	0e 94 c3 04 	call	0x986	; 0x986 <LCD_voidSendString>
+ 33a:	08 95       	ret
+
+0000033c <print_mode>:
+}
+
+/******print VALVE mode******/
+
+void print_mode(void){
+	switch(v_mode){
+ 33c:	e0 91 d6 00 	lds	r30, 0x00D6	; 0x8000d6 <__data_end>
+ 340:	8e 2f       	mov	r24, r30
+ 342:	90 e0       	ldi	r25, 0x00	; 0
+ 344:	88 30       	cpi	r24, 0x08	; 8
+ 346:	91 05       	cpc	r25, r1
+ 348:	08 f0       	brcs	.+2      	; 0x34c <print_mode+0x10>
+ 34a:	4c c0       	rjmp	.+152    	; 0x3e4 <print_mode+0xa8>
+ 34c:	fc 01       	movw	r30, r24
+ 34e:	e6 5d       	subi	r30, 0xD6	; 214
+ 350:	ff 4f       	sbci	r31, 0xFF	; 255
+ 352:	0c 94 f0 04 	jmp	0x9e0	; 0x9e0 <__tablejump2__>
+		case LOCAL:
+		LCD_voidSetCursor(0,9);
+ 356:	69 e0       	ldi	r22, 0x09	; 9
+ 358:	80 e0       	ldi	r24, 0x00	; 0
+ 35a:	0e 94 d6 04 	call	0x9ac	; 0x9ac <LCD_voidSetCursor>
+		LCD_voidSendString("LOCAL  ");
+ 35e:	86 e9       	ldi	r24, 0x96	; 150
+ 360:	90 e0       	ldi	r25, 0x00	; 0
+ 362:	0e 94 c3 04 	call	0x986	; 0x986 <LCD_voidSendString>
+		break;
+ 366:	08 95       	ret
+		case REMOTE:
+		LCD_voidSetCursor(0,9);
+ 368:	69 e0       	ldi	r22, 0x09	; 9
+ 36a:	80 e0       	ldi	r24, 0x00	; 0
+ 36c:	0e 94 d6 04 	call	0x9ac	; 0x9ac <LCD_voidSetCursor>
+		LCD_voidSendString("REMOTE ");
+ 370:	8e e9       	ldi	r24, 0x9E	; 158
+ 372:	90 e0       	ldi	r25, 0x00	; 0
+ 374:	0e 94 c3 04 	call	0x986	; 0x986 <LCD_voidSendString>
+		break;
+ 378:	08 95       	ret
+		case OFF:
+		LCD_voidSetCursor(0,9);
+ 37a:	69 e0       	ldi	r22, 0x09	; 9
+ 37c:	80 e0       	ldi	r24, 0x00	; 0
+ 37e:	0e 94 d6 04 	call	0x9ac	; 0x9ac <LCD_voidSetCursor>
+		LCD_voidSendString("OFF    ");
+ 382:	86 ea       	ldi	r24, 0xA6	; 166
+ 384:	90 e0       	ldi	r25, 0x00	; 0
+ 386:	0e 94 c3 04 	call	0x986	; 0x986 <LCD_voidSendString>
+		break;
+ 38a:	08 95       	ret
+		case STOP :
+		LCD_voidSetCursor(0,9);
+ 38c:	69 e0       	ldi	r22, 0x09	; 9
+ 38e:	80 e0       	ldi	r24, 0x00	; 0
+ 390:	0e 94 d6 04 	call	0x9ac	; 0x9ac <LCD_voidSetCursor>
+		LCD_voidSendString("STOP   ");
+ 394:	8e ea       	ldi	r24, 0xAE	; 174
+ 396:	90 e0       	ldi	r25, 0x00	; 0
+ 398:	0e 94 c3 04 	call	0x986	; 0x986 <LCD_voidSendString>
+		break;
+ 39c:	08 95       	ret
+		case H_WHEEL :
+		LCD_voidSetCursor(0,9);
+ 39e:	69 e0       	ldi	r22, 0x09	; 9
+ 3a0:	80 e0       	ldi	r24, 0x00	; 0
+ 3a2:	0e 94 d6 04 	call	0x9ac	; 0x9ac <LCD_voidSetCursor>
+		LCD_voidSendString("H_WHEEL");
+ 3a6:	86 eb       	ldi	r24, 0xB6	; 182
+ 3a8:	90 e0       	ldi	r25, 0x00	; 0
+ 3aa:	0e 94 c3 04 	call	0x986	; 0x986 <LCD_voidSendString>
+		break;
+ 3ae:	08 95       	ret
+		case TH_FAULT :
+		LCD_voidSetCursor(0,9);
+ 3b0:	69 e0       	ldi	r22, 0x09	; 9
+ 3b2:	80 e0       	ldi	r24, 0x00	; 0
+ 3b4:	0e 94 d6 04 	call	0x9ac	; 0x9ac <LCD_voidSetCursor>
+		LCD_voidSendString("THERMAL");
+ 3b8:	8e eb       	ldi	r24, 0xBE	; 190
+ 3ba:	90 e0       	ldi	r25, 0x00	; 0
+ 3bc:	0e 94 c3 04 	call	0x986	; 0x986 <LCD_voidSendString>
+		break;
+ 3c0:	08 95       	ret
+		case O_TORQUE :
+		LCD_voidSetCursor(0,9);
+ 3c2:	69 e0       	ldi	r22, 0x09	; 9
+ 3c4:	80 e0       	ldi	r24, 0x00	; 0
+ 3c6:	0e 94 d6 04 	call	0x9ac	; 0x9ac <LCD_voidSetCursor>
+		LCD_voidSendString("O_TRQUE");
+ 3ca:	86 ec       	ldi	r24, 0xC6	; 198
+ 3cc:	90 e0       	ldi	r25, 0x00	; 0
+ 3ce:	0e 94 c3 04 	call	0x986	; 0x986 <LCD_voidSendString>
+		break;
+ 3d2:	08 95       	ret
+		case C_TORQUE :
+		LCD_voidSetCursor(0,9);
+ 3d4:	69 e0       	ldi	r22, 0x09	; 9
+ 3d6:	80 e0       	ldi	r24, 0x00	; 0
+ 3d8:	0e 94 d6 04 	call	0x9ac	; 0x9ac <LCD_voidSetCursor>
+		LCD_voidSendString("C_TRQUE");
+ 3dc:	8e ec       	ldi	r24, 0xCE	; 206
+ 3de:	90 e0       	ldi	r25, 0x00	; 0
+ 3e0:	0e 94 c3 04 	call	0x986	; 0x986 <LCD_voidSendString>
+ 3e4:	08 95       	ret
+
+000003e6 <remote_fbk_update>:
+	
+}
+
+/******UPDATE REMOTE FBK**********/
+void remote_fbk_update(void){
+	switch(v_position){
+ 3e6:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <v_position>
+ 3ea:	81 30       	cpi	r24, 0x01	; 1
+ 3ec:	31 f0       	breq	.+12     	; 0x3fa <remote_fbk_update+0x14>
+ 3ee:	70 f0       	brcs	.+28     	; 0x40c <__EEPROM_REGION_LENGTH__+0xc>
+ 3f0:	82 30       	cpi	r24, 0x02	; 2
+ 3f2:	a9 f0       	breq	.+42     	; 0x41e <__EEPROM_REGION_LENGTH__+0x1e>
+ 3f4:	83 30       	cpi	r24, 0x03	; 3
+ 3f6:	e1 f0       	breq	.+56     	; 0x430 <__EEPROM_REGION_LENGTH__+0x30>
+ 3f8:	08 95       	ret
+		case CLOSED:
+        DIO_Void_SetPin(CLOSED_FBK_PORT,CLOSED_FBK);
+ 3fa:	60 e0       	ldi	r22, 0x00	; 0
+ 3fc:	88 e0       	ldi	r24, 0x08	; 8
+ 3fe:	0e 94 70 03 	call	0x6e0	; 0x6e0 <DIO_Void_SetPin>
+		DIO_Void_ClearPin(OPENED_FBK_PORT,OPENED_FBK);
+ 402:	61 e0       	ldi	r22, 0x01	; 1
+ 404:	88 e0       	ldi	r24, 0x08	; 8
+ 406:	0e 94 a7 03 	call	0x74e	; 0x74e <DIO_Void_ClearPin>
+		break;
+ 40a:	08 95       	ret
+		case OPENED:
+        DIO_Void_SetPin(OPENED_FBK_PORT,OPENED_FBK);
+ 40c:	61 e0       	ldi	r22, 0x01	; 1
+ 40e:	88 e0       	ldi	r24, 0x08	; 8
+ 410:	0e 94 70 03 	call	0x6e0	; 0x6e0 <DIO_Void_SetPin>
+		DIO_Void_ClearPin(CLOSED_FBK_PORT,CLOSED_FBK);
+ 414:	60 e0       	ldi	r22, 0x00	; 0
+ 416:	88 e0       	ldi	r24, 0x08	; 8
+ 418:	0e 94 a7 03 	call	0x74e	; 0x74e <DIO_Void_ClearPin>
+		break;
+ 41c:	08 95       	ret
+		case TRAVEL:
+        DIO_Void_ClearPin(OPENED_FBK_PORT,OPENED_FBK);
+ 41e:	61 e0       	ldi	r22, 0x01	; 1
+ 420:	88 e0       	ldi	r24, 0x08	; 8
+ 422:	0e 94 a7 03 	call	0x74e	; 0x74e <DIO_Void_ClearPin>
+        DIO_Void_ClearPin(CLOSED_FBK_PORT,CLOSED_FBK);
+ 426:	60 e0       	ldi	r22, 0x00	; 0
+ 428:	88 e0       	ldi	r24, 0x08	; 8
+ 42a:	0e 94 a7 03 	call	0x74e	; 0x74e <DIO_Void_ClearPin>
+		break;
+ 42e:	08 95       	ret
+		case UNDEFINED :
+        DIO_Void_ClearPin(OPENED_FBK_PORT,OPENED_FBK);
+ 430:	61 e0       	ldi	r22, 0x01	; 1
+ 432:	88 e0       	ldi	r24, 0x08	; 8
+ 434:	0e 94 a7 03 	call	0x74e	; 0x74e <DIO_Void_ClearPin>
+        DIO_Void_ClearPin(CLOSED_FBK_PORT,CLOSED_FBK);
+ 438:	60 e0       	ldi	r22, 0x00	; 0
+ 43a:	88 e0       	ldi	r24, 0x08	; 8
+ 43c:	0e 94 a7 03 	call	0x74e	; 0x74e <DIO_Void_ClearPin>
+ 440:	08 95       	ret
+
+00000442 <open_valve>:
+	}
+}
+/******OPEN VALVE RELAY ****************/
+void open_valve(void){
+
+		DIO_Void_SetPin(MOTOR_OPEN_PORT,MOTOR_OPEN);
+ 442:	63 e0       	ldi	r22, 0x03	; 3
+ 444:	88 e0       	ldi	r24, 0x08	; 8
+ 446:	0e 94 70 03 	call	0x6e0	; 0x6e0 <DIO_Void_SetPin>
+ 44a:	08 95       	ret
+
+0000044c <close_valve>:
+	
+/**************CLOSE VLAVE RELAY***************/	
+
+void close_valve(void){
+	
+	DIO_Void_SetPin(MOTOR_CLOSE_PORT,MOTOR_CLOSE);
+ 44c:	64 e0       	ldi	r22, 0x04	; 4
+ 44e:	88 e0       	ldi	r24, 0x08	; 8
+ 450:	0e 94 70 03 	call	0x6e0	; 0x6e0 <DIO_Void_SetPin>
+ 454:	08 95       	ret
+
+00000456 <stop_valve>:
+	
+}
+/**********************STOP VALVE*****************/
+void stop_valve(void){
+	
+	DIO_Void_ClearPin(MOTOR_CLOSE_PORT,MOTOR_CLOSE);
+ 456:	64 e0       	ldi	r22, 0x04	; 4
+ 458:	88 e0       	ldi	r24, 0x08	; 8
+ 45a:	0e 94 a7 03 	call	0x74e	; 0x74e <DIO_Void_ClearPin>
+	DIO_Void_ClearPin(MOTOR_OPEN_PORT,MOTOR_OPEN);
+ 45e:	63 e0       	ldi	r22, 0x03	; 3
+ 460:	88 e0       	ldi	r24, 0x08	; 8
+ 462:	0e 94 a7 03 	call	0x74e	; 0x74e <DIO_Void_ClearPin>
+ 466:	08 95       	ret
+
+00000468 <valve_initialization>:
+
+
+/*******************INITIALIZE VALVE********************/
+void valve_initialization(){
+	
+valve_drivers_init();
+ 468:	0e 94 69 01 	call	0x2d2	; 0x2d2 <valve_drivers_init>
+valve_DI_init();
+ 46c:	0e 94 34 01 	call	0x268	; 0x268 <valve_DI_init>
+valve_LCD_init();
+ 470:	0e 94 0e 01 	call	0x21c	; 0x21c <valve_LCD_init>
+get_valve_mode();
+ 474:	0e 94 51 00 	call	0xa2	; 0xa2 <get_valve_mode>
+print_mode();
+ 478:	0e 94 9e 01 	call	0x33c	; 0x33c <print_mode>
+get_valve_position();
+ 47c:	0e 94 ba 00 	call	0x174	; 0x174 <get_valve_position>
+print_position();	
+ 480:	0e 94 70 01 	call	0x2e0	; 0x2e0 <print_position>
+remote_fbk_update();
+ 484:	0e 94 f3 01 	call	0x3e6	; 0x3e6 <remote_fbk_update>
+ 488:	08 95       	ret
+
+0000048a <valve_operation>:
+	
+}
+/****************VALVE OPERATION***************/
+void valve_operation(void){
+
+      while (v_mode==REMOTE)
+ 48a:	58 c0       	rjmp	.+176    	; 0x53c <valve_operation+0xb2>
+         {
+             	get_valve_mode();
+ 48c:	0e 94 51 00 	call	0xa2	; 0xa2 <get_valve_mode>
+             	print_mode();
+ 490:	0e 94 9e 01 	call	0x33c	; 0x33c <print_mode>
+             	get_valve_position();
+ 494:	0e 94 ba 00 	call	0x174	; 0x174 <get_valve_position>
+             	print_position();
+ 498:	0e 94 70 01 	call	0x2e0	; 0x2e0 <print_position>
+			    remote_fbk_update();
+ 49c:	0e 94 f3 01 	call	0x3e6	; 0x3e6 <remote_fbk_update>
+             	get_remote_command();
+ 4a0:	0e 94 e0 00 	call	0x1c0	; 0x1c0 <get_remote_command>
+             	if (r_command==R_OPEN && v_position!=OPENED && v_closing_f!=1)  /*updated 28/2 10:00pm*/
+ 4a4:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <r_command>
+ 4a8:	81 11       	cpse	r24, r1
+ 4aa:	0d c0       	rjmp	.+26     	; 0x4c6 <valve_operation+0x3c>
+ 4ac:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <v_position>
+ 4b0:	88 23       	and	r24, r24
+ 4b2:	49 f0       	breq	.+18     	; 0x4c6 <valve_operation+0x3c>
+ 4b4:	80 91 d7 00 	lds	r24, 0x00D7	; 0x8000d7 <v_closing_f>
+ 4b8:	81 30       	cpi	r24, 0x01	; 1
+ 4ba:	29 f0       	breq	.+10     	; 0x4c6 <valve_operation+0x3c>
+             	{
+             		open_valve();
+ 4bc:	0e 94 21 02 	call	0x442	; 0x442 <open_valve>
+					 v_opening_f=1;
+ 4c0:	81 e0       	ldi	r24, 0x01	; 1
+ 4c2:	80 93 d8 00 	sts	0x00D8, r24	; 0x8000d8 <v_opening_f>
+             	}
+				if (v_opening_f==1 && (v_position==OPENED||r_command==R_CLOSE))/*updated 5/3 10:00pm*/
+ 4c6:	80 91 d8 00 	lds	r24, 0x00D8	; 0x8000d8 <v_opening_f>
+ 4ca:	81 30       	cpi	r24, 0x01	; 1
+ 4cc:	61 f4       	brne	.+24     	; 0x4e6 <valve_operation+0x5c>
+ 4ce:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <v_position>
+ 4d2:	88 23       	and	r24, r24
+ 4d4:	21 f0       	breq	.+8      	; 0x4de <valve_operation+0x54>
+ 4d6:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <r_command>
+ 4da:	81 30       	cpi	r24, 0x01	; 1
+ 4dc:	21 f4       	brne	.+8      	; 0x4e6 <valve_operation+0x5c>
+             	{
+             		stop_valve();
+ 4de:	0e 94 2b 02 	call	0x456	; 0x456 <stop_valve>
+					 v_opening_f=0;
+ 4e2:	10 92 d8 00 	sts	0x00D8, r1	; 0x8000d8 <v_opening_f>
+             	}
+             		
+             
+                 if (r_command==R_CLOSE && v_position!=CLOSED && v_opening_f!=1)  /*updated 28/2 10:00pm*/
+ 4e6:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <r_command>
+ 4ea:	81 30       	cpi	r24, 0x01	; 1
+ 4ec:	69 f4       	brne	.+26     	; 0x508 <valve_operation+0x7e>
+ 4ee:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <v_position>
+ 4f2:	81 30       	cpi	r24, 0x01	; 1
+ 4f4:	49 f0       	breq	.+18     	; 0x508 <valve_operation+0x7e>
+ 4f6:	80 91 d8 00 	lds	r24, 0x00D8	; 0x8000d8 <v_opening_f>
+ 4fa:	81 30       	cpi	r24, 0x01	; 1
+ 4fc:	29 f0       	breq	.+10     	; 0x508 <valve_operation+0x7e>
+                 {
+             	    	close_valve();
+ 4fe:	0e 94 26 02 	call	0x44c	; 0x44c <close_valve>
+						 v_closing_f=1;
+ 502:	81 e0       	ldi	r24, 0x01	; 1
+ 504:	80 93 d7 00 	sts	0x00D7, r24	; 0x8000d7 <v_closing_f>
+                 }
+				 
+				  if (v_closing_f==1 &&( v_position==CLOSED||r_command==R_OPEN))/*updated 5/3 10:00pm*/
+ 508:	80 91 d7 00 	lds	r24, 0x00D7	; 0x8000d7 <v_closing_f>
+ 50c:	81 30       	cpi	r24, 0x01	; 1
+ 50e:	61 f4       	brne	.+24     	; 0x528 <valve_operation+0x9e>
+ 510:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <v_position>
+ 514:	81 30       	cpi	r24, 0x01	; 1
+ 516:	21 f0       	breq	.+8      	; 0x520 <valve_operation+0x96>
+ 518:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <r_command>
+ 51c:	81 11       	cpse	r24, r1
+ 51e:	04 c0       	rjmp	.+8      	; 0x528 <valve_operation+0x9e>
+                 {
+             		stop_valve();
+ 520:	0e 94 2b 02 	call	0x456	; 0x456 <stop_valve>
+                   v_closing_f=0;
+ 524:	10 92 d7 00 	sts	0x00D7, r1	; 0x8000d7 <v_closing_f>
+				 }
+                  if (v_mode!=REMOTE)
+ 528:	80 91 d6 00 	lds	r24, 0x00D6	; 0x8000d6 <__data_end>
+ 52c:	88 23       	and	r24, r24
+ 52e:	31 f0       	breq	.+12     	; 0x53c <valve_operation+0xb2>
+                  {
+             		 stop_valve();
+ 530:	0e 94 2b 02 	call	0x456	; 0x456 <stop_valve>
+					  v_closing_f=0;
+ 534:	10 92 d7 00 	sts	0x00D7, r1	; 0x8000d7 <v_closing_f>
+					  v_opening_f=0;
+ 538:	10 92 d8 00 	sts	0x00D8, r1	; 0x8000d8 <v_opening_f>
+	
+}
+/****************VALVE OPERATION***************/
+void valve_operation(void){
+
+      while (v_mode==REMOTE)
+ 53c:	80 91 d6 00 	lds	r24, 0x00D6	; 0x8000d6 <__data_end>
+ 540:	88 23       	and	r24, r24
+ 542:	09 f4       	brne	.+2      	; 0x546 <valve_operation+0xbc>
+ 544:	a3 cf       	rjmp	.-186    	; 0x48c <valve_operation+0x2>
+ 546:	58 c0       	rjmp	.+176    	; 0x5f8 <valve_operation+0x16e>
+         	
+         }
+          while (v_mode==LOCAL)
+           {    
+			    
+		         get_valve_mode();
+ 548:	0e 94 51 00 	call	0xa2	; 0xa2 <get_valve_mode>
+               	print_mode();
+ 54c:	0e 94 9e 01 	call	0x33c	; 0x33c <print_mode>
+               	get_valve_position();
+ 550:	0e 94 ba 00 	call	0x174	; 0x174 <get_valve_position>
+               	print_position();
+ 554:	0e 94 70 01 	call	0x2e0	; 0x2e0 <print_position>
+				remote_fbk_update();
+ 558:	0e 94 f3 01 	call	0x3e6	; 0x3e6 <remote_fbk_update>
+               	get_local_command();
+ 55c:	0e 94 f7 00 	call	0x1ee	; 0x1ee <get_local_command>
+				  
+               	if (l_command==L_OPEN && v_position!=OPENED && v_closing_f!=1) /*updated 5/3 10:00pm*/
+ 560:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 564:	81 11       	cpse	r24, r1
+ 566:	0d c0       	rjmp	.+26     	; 0x582 <valve_operation+0xf8>
+ 568:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <v_position>
+ 56c:	88 23       	and	r24, r24
+ 56e:	49 f0       	breq	.+18     	; 0x582 <valve_operation+0xf8>
+ 570:	80 91 d7 00 	lds	r24, 0x00D7	; 0x8000d7 <v_closing_f>
+ 574:	81 30       	cpi	r24, 0x01	; 1
+ 576:	29 f0       	breq	.+10     	; 0x582 <valve_operation+0xf8>
+               	{
+               		open_valve();
+ 578:	0e 94 21 02 	call	0x442	; 0x442 <open_valve>
+					v_opening_f=1;
+ 57c:	81 e0       	ldi	r24, 0x01	; 1
+ 57e:	80 93 d8 00 	sts	0x00D8, r24	; 0x8000d8 <v_opening_f>
+               	}
+			    if (v_opening_f==1 && (v_position==OPENED||l_command==L_CLOSE))/*updated 5/3 10:00pm*/
+ 582:	80 91 d8 00 	lds	r24, 0x00D8	; 0x8000d8 <v_opening_f>
+ 586:	81 30       	cpi	r24, 0x01	; 1
+ 588:	61 f4       	brne	.+24     	; 0x5a2 <valve_operation+0x118>
+ 58a:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <v_position>
+ 58e:	88 23       	and	r24, r24
+ 590:	21 f0       	breq	.+8      	; 0x59a <valve_operation+0x110>
+ 592:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 596:	81 30       	cpi	r24, 0x01	; 1
+ 598:	21 f4       	brne	.+8      	; 0x5a2 <valve_operation+0x118>
+               	{
+               		stop_valve();
+ 59a:	0e 94 2b 02 	call	0x456	; 0x456 <stop_valve>
+					   v_opening_f=0;
+ 59e:	10 92 d8 00 	sts	0x00D8, r1	; 0x8000d8 <v_opening_f>
+               	}
+               	
+               	if (l_command==L_CLOSE && v_position!=CLOSED && v_opening_f!=1)/*updated 5/3 10:00pm*/
+ 5a2:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 5a6:	81 30       	cpi	r24, 0x01	; 1
+ 5a8:	69 f4       	brne	.+26     	; 0x5c4 <valve_operation+0x13a>
+ 5aa:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <v_position>
+ 5ae:	81 30       	cpi	r24, 0x01	; 1
+ 5b0:	49 f0       	breq	.+18     	; 0x5c4 <valve_operation+0x13a>
+ 5b2:	80 91 d8 00 	lds	r24, 0x00D8	; 0x8000d8 <v_opening_f>
+ 5b6:	81 30       	cpi	r24, 0x01	; 1
+ 5b8:	29 f0       	breq	.+10     	; 0x5c4 <valve_operation+0x13a>
+               	{
+					close_valve();   
+ 5ba:	0e 94 26 02 	call	0x44c	; 0x44c <close_valve>
+               		v_closing_f=1;
+ 5be:	81 e0       	ldi	r24, 0x01	; 1
+ 5c0:	80 93 d7 00 	sts	0x00D7, r24	; 0x8000d7 <v_closing_f>
+               	}
+				    if (v_closing_f==1 && (v_position==CLOSED||l_command==L_OPEN))/*updated 5/3 10:00pm*/
+ 5c4:	80 91 d7 00 	lds	r24, 0x00D7	; 0x8000d7 <v_closing_f>
+ 5c8:	81 30       	cpi	r24, 0x01	; 1
+ 5ca:	61 f4       	brne	.+24     	; 0x5e4 <valve_operation+0x15a>
+ 5cc:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <v_position>
+ 5d0:	81 30       	cpi	r24, 0x01	; 1
+ 5d2:	21 f0       	breq	.+8      	; 0x5dc <valve_operation+0x152>
+ 5d4:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 5d8:	81 11       	cpse	r24, r1
+ 5da:	04 c0       	rjmp	.+8      	; 0x5e4 <valve_operation+0x15a>
+               	{
+               		stop_valve();
+ 5dc:	0e 94 2b 02 	call	0x456	; 0x456 <stop_valve>
+               	    v_closing_f=0;
+ 5e0:	10 92 d7 00 	sts	0x00D7, r1	; 0x8000d7 <v_closing_f>
+				   }
+               	
+               	  if (v_mode!=LOCAL)
+ 5e4:	80 91 d6 00 	lds	r24, 0x00D6	; 0x8000d6 <__data_end>
+ 5e8:	81 30       	cpi	r24, 0x01	; 1
+ 5ea:	31 f0       	breq	.+12     	; 0x5f8 <valve_operation+0x16e>
+               	  {
+               		  stop_valve();
+ 5ec:	0e 94 2b 02 	call	0x456	; 0x456 <stop_valve>
+					  v_closing_f=0;
+ 5f0:	10 92 d7 00 	sts	0x00D7, r1	; 0x8000d7 <v_closing_f>
+					  v_opening_f=0;
+ 5f4:	10 92 d8 00 	sts	0x00D8, r1	; 0x8000d8 <v_opening_f>
+					  v_opening_f=0;
+                  }
+             
+         	
+         }
+          while (v_mode==LOCAL)
+ 5f8:	80 91 d6 00 	lds	r24, 0x00D6	; 0x8000d6 <__data_end>
+ 5fc:	81 30       	cpi	r24, 0x01	; 1
+ 5fe:	09 f4       	brne	.+2      	; 0x602 <valve_operation+0x178>
+ 600:	a3 cf       	rjmp	.-186    	; 0x548 <valve_operation+0xbe>
+ 602:	0c c0       	rjmp	.+24     	; 0x61c <valve_operation+0x192>
+         
+         }
+         
+         while (v_mode==OFF)
+           {
+         	      stop_valve();
+ 604:	0e 94 2b 02 	call	0x456	; 0x456 <stop_valve>
+         	      get_valve_mode();
+ 608:	0e 94 51 00 	call	0xa2	; 0xa2 <get_valve_mode>
+         	      print_mode();
+ 60c:	0e 94 9e 01 	call	0x33c	; 0x33c <print_mode>
+         	      get_valve_position();
+ 610:	0e 94 ba 00 	call	0x174	; 0x174 <get_valve_position>
+         	      print_position();
+ 614:	0e 94 70 01 	call	0x2e0	; 0x2e0 <print_position>
+				  remote_fbk_update();
+ 618:	0e 94 f3 01 	call	0x3e6	; 0x3e6 <remote_fbk_update>
+               	  }
+               
+         
+         }
+         
+         while (v_mode==OFF)
+ 61c:	80 91 d6 00 	lds	r24, 0x00D6	; 0x8000d6 <__data_end>
+ 620:	82 30       	cpi	r24, 0x02	; 2
+ 622:	81 f3       	breq	.-32     	; 0x604 <valve_operation+0x17a>
+ 624:	0c c0       	rjmp	.+24     	; 0x63e <valve_operation+0x1b4>
+         	
+           }
+		   
+           while (v_mode==STOP)
+          {
+         	       stop_valve();
+ 626:	0e 94 2b 02 	call	0x456	; 0x456 <stop_valve>
+         	       get_valve_mode();
+ 62a:	0e 94 51 00 	call	0xa2	; 0xa2 <get_valve_mode>
+         	       print_mode();
+ 62e:	0e 94 9e 01 	call	0x33c	; 0x33c <print_mode>
+         	       get_valve_position();
+ 632:	0e 94 ba 00 	call	0x174	; 0x174 <get_valve_position>
+         	       print_position();
+ 636:	0e 94 70 01 	call	0x2e0	; 0x2e0 <print_position>
+         	       remote_fbk_update();
+ 63a:	0e 94 f3 01 	call	0x3e6	; 0x3e6 <remote_fbk_update>
+         	      print_position();
+				  remote_fbk_update();
+         	
+           }
+		   
+           while (v_mode==STOP)
+ 63e:	80 91 d6 00 	lds	r24, 0x00D6	; 0x8000d6 <__data_end>
+ 642:	83 30       	cpi	r24, 0x03	; 3
+ 644:	81 f3       	breq	.-32     	; 0x626 <valve_operation+0x19c>
+ 646:	0c c0       	rjmp	.+24     	; 0x660 <valve_operation+0x1d6>
+         	       remote_fbk_update();
+           }
+			
+	       while (v_mode==H_WHEEL)
+	       {
+		       stop_valve();
+ 648:	0e 94 2b 02 	call	0x456	; 0x456 <stop_valve>
+		       get_valve_mode();
+ 64c:	0e 94 51 00 	call	0xa2	; 0xa2 <get_valve_mode>
+		       print_mode();
+ 650:	0e 94 9e 01 	call	0x33c	; 0x33c <print_mode>
+		       get_valve_position();
+ 654:	0e 94 ba 00 	call	0x174	; 0x174 <get_valve_position>
+		       print_position();
+ 658:	0e 94 70 01 	call	0x2e0	; 0x2e0 <print_position>
+		       remote_fbk_update();
+ 65c:	0e 94 f3 01 	call	0x3e6	; 0x3e6 <remote_fbk_update>
+         	       get_valve_position();
+         	       print_position();
+         	       remote_fbk_update();
+           }
+			
+	       while (v_mode==H_WHEEL)
+ 660:	80 91 d6 00 	lds	r24, 0x00D6	; 0x8000d6 <__data_end>
+ 664:	87 30       	cpi	r24, 0x07	; 7
+ 666:	81 f3       	breq	.-32     	; 0x648 <valve_operation+0x1be>
+ 668:	0c c0       	rjmp	.+24     	; 0x682 <valve_operation+0x1f8>
+		       print_position();
+		       remote_fbk_update();
+	       }		
+ 	       while (v_mode==TH_FAULT)
+ 	       {
+	 	       stop_valve();
+ 66a:	0e 94 2b 02 	call	0x456	; 0x456 <stop_valve>
+	 	       get_valve_mode();
+ 66e:	0e 94 51 00 	call	0xa2	; 0xa2 <get_valve_mode>
+	 	       print_mode();
+ 672:	0e 94 9e 01 	call	0x33c	; 0x33c <print_mode>
+	 	       get_valve_position();
+ 676:	0e 94 ba 00 	call	0x174	; 0x174 <get_valve_position>
+	 	       print_position();
+ 67a:	0e 94 70 01 	call	0x2e0	; 0x2e0 <print_position>
+	 	       remote_fbk_update();
+ 67e:	0e 94 f3 01 	call	0x3e6	; 0x3e6 <remote_fbk_update>
+		       print_mode();
+		       get_valve_position();
+		       print_position();
+		       remote_fbk_update();
+	       }		
+ 	       while (v_mode==TH_FAULT)
+ 682:	80 91 d6 00 	lds	r24, 0x00D6	; 0x8000d6 <__data_end>
+ 686:	84 30       	cpi	r24, 0x04	; 4
+ 688:	81 f3       	breq	.-32     	; 0x66a <valve_operation+0x1e0>
+ 68a:	0c c0       	rjmp	.+24     	; 0x6a4 <valve_operation+0x21a>
+	 	       print_position();
+	 	       remote_fbk_update();
+ 	       } 
+ 	       while (v_mode==O_TORQUE)
+ 	       {
+	 	       stop_valve();
+ 68c:	0e 94 2b 02 	call	0x456	; 0x456 <stop_valve>
+	 	       get_valve_mode();
+ 690:	0e 94 51 00 	call	0xa2	; 0xa2 <get_valve_mode>
+	 	       print_mode();
+ 694:	0e 94 9e 01 	call	0x33c	; 0x33c <print_mode>
+	 	       get_valve_position();
+ 698:	0e 94 ba 00 	call	0x174	; 0x174 <get_valve_position>
+	 	       print_position();
+ 69c:	0e 94 70 01 	call	0x2e0	; 0x2e0 <print_position>
+	 	       remote_fbk_update();
+ 6a0:	0e 94 f3 01 	call	0x3e6	; 0x3e6 <remote_fbk_update>
+	 	       print_mode();
+	 	       get_valve_position();
+	 	       print_position();
+	 	       remote_fbk_update();
+ 	       } 
+ 	       while (v_mode==O_TORQUE)
+ 6a4:	80 91 d6 00 	lds	r24, 0x00D6	; 0x8000d6 <__data_end>
+ 6a8:	85 30       	cpi	r24, 0x05	; 5
+ 6aa:	81 f3       	breq	.-32     	; 0x68c <valve_operation+0x202>
+ 6ac:	0c c0       	rjmp	.+24     	; 0x6c6 <valve_operation+0x23c>
+	 	       print_position();
+	 	       remote_fbk_update();
+ 	       } 
+	       while (v_mode==C_TORQUE)
+	       {
+		       stop_valve();
+ 6ae:	0e 94 2b 02 	call	0x456	; 0x456 <stop_valve>
+		       get_valve_mode();
+ 6b2:	0e 94 51 00 	call	0xa2	; 0xa2 <get_valve_mode>
+		       print_mode();
+ 6b6:	0e 94 9e 01 	call	0x33c	; 0x33c <print_mode>
+		       get_valve_position();
+ 6ba:	0e 94 ba 00 	call	0x174	; 0x174 <get_valve_position>
+		       print_position();
+ 6be:	0e 94 70 01 	call	0x2e0	; 0x2e0 <print_position>
+		       remote_fbk_update();
+ 6c2:	0e 94 f3 01 	call	0x3e6	; 0x3e6 <remote_fbk_update>
+	 	       print_mode();
+	 	       get_valve_position();
+	 	       print_position();
+	 	       remote_fbk_update();
+ 	       } 
+	       while (v_mode==C_TORQUE)
+ 6c6:	80 91 d6 00 	lds	r24, 0x00D6	; 0x8000d6 <__data_end>
+ 6ca:	86 30       	cpi	r24, 0x06	; 6
+ 6cc:	81 f3       	breq	.-32     	; 0x6ae <valve_operation+0x224>
+		       get_valve_position();
+		       print_position();
+		       remote_fbk_update();
+	       }  
+  
+ 6ce:	08 95       	ret
+
+000006d0 <DIO_Void_Init>:
+
+
+/*********************************/
+void DIO_Void_Init(void){
+	
+	DDRA = DIO_u8_DIR_PORTA;
+ 6d0:	80 ee       	ldi	r24, 0xE0	; 224
+ 6d2:	8a bb       	out	0x1a, r24	; 26
+	DDRB = DIO_u8_DIR_PORTB;
+ 6d4:	8e ef       	ldi	r24, 0xFE	; 254
+ 6d6:	87 bb       	out	0x17, r24	; 23
+	DDRC = DIO_u8_DIR_PORTC;
+ 6d8:	14 ba       	out	0x14, r1	; 20
+	DDRD = DIO_u8_DIR_PORTD;
+ 6da:	8f e9       	ldi	r24, 0x9F	; 159
+ 6dc:	81 bb       	out	0x11, r24	; 17
+ 6de:	08 95       	ret
+
+000006e0 <DIO_Void_SetPin>:
+	
+}
+/*************************************/
+void DIO_Void_SetPin(u8 DIO_U8_PORT , u8 DIO_U8_Pin) {
+
+switch(DIO_U8_PORT){
+ 6e0:	86 30       	cpi	r24, 0x06	; 6
+ 6e2:	a1 f0       	breq	.+40     	; 0x70c <DIO_Void_SetPin+0x2c>
+ 6e4:	18 f4       	brcc	.+6      	; 0x6ec <DIO_Void_SetPin+0xc>
+ 6e6:	85 30       	cpi	r24, 0x05	; 5
+ 6e8:	31 f0       	breq	.+12     	; 0x6f6 <DIO_Void_SetPin+0x16>
+ 6ea:	08 95       	ret
+ 6ec:	87 30       	cpi	r24, 0x07	; 7
+ 6ee:	c9 f0       	breq	.+50     	; 0x722 <DIO_Void_SetPin+0x42>
+ 6f0:	88 30       	cpi	r24, 0x08	; 8
+ 6f2:	11 f1       	breq	.+68     	; 0x738 <DIO_Void_SetPin+0x58>
+ 6f4:	08 95       	ret
+case DIO_U8_PORTA:
+  SetBit(PORTA,DIO_U8_Pin);
+ 6f6:	2b b3       	in	r18, 0x1b	; 27
+ 6f8:	81 e0       	ldi	r24, 0x01	; 1
+ 6fa:	90 e0       	ldi	r25, 0x00	; 0
+ 6fc:	02 c0       	rjmp	.+4      	; 0x702 <DIO_Void_SetPin+0x22>
+ 6fe:	88 0f       	add	r24, r24
+ 700:	99 1f       	adc	r25, r25
+ 702:	6a 95       	dec	r22
+ 704:	e2 f7       	brpl	.-8      	; 0x6fe <DIO_Void_SetPin+0x1e>
+ 706:	82 2b       	or	r24, r18
+ 708:	8b bb       	out	0x1b, r24	; 27
+  break;
+ 70a:	08 95       	ret
+case DIO_U8_PORTB:
+SetBit(PORTB,DIO_U8_Pin);
+ 70c:	28 b3       	in	r18, 0x18	; 24
+ 70e:	81 e0       	ldi	r24, 0x01	; 1
+ 710:	90 e0       	ldi	r25, 0x00	; 0
+ 712:	02 c0       	rjmp	.+4      	; 0x718 <DIO_Void_SetPin+0x38>
+ 714:	88 0f       	add	r24, r24
+ 716:	99 1f       	adc	r25, r25
+ 718:	6a 95       	dec	r22
+ 71a:	e2 f7       	brpl	.-8      	; 0x714 <DIO_Void_SetPin+0x34>
+ 71c:	82 2b       	or	r24, r18
+ 71e:	88 bb       	out	0x18, r24	; 24
+break;
+ 720:	08 95       	ret
+case DIO_U8_PORTC:
+SetBit(PORTC,DIO_U8_Pin);
+ 722:	25 b3       	in	r18, 0x15	; 21
+ 724:	81 e0       	ldi	r24, 0x01	; 1
+ 726:	90 e0       	ldi	r25, 0x00	; 0
+ 728:	02 c0       	rjmp	.+4      	; 0x72e <DIO_Void_SetPin+0x4e>
+ 72a:	88 0f       	add	r24, r24
+ 72c:	99 1f       	adc	r25, r25
+ 72e:	6a 95       	dec	r22
+ 730:	e2 f7       	brpl	.-8      	; 0x72a <DIO_Void_SetPin+0x4a>
+ 732:	82 2b       	or	r24, r18
+ 734:	85 bb       	out	0x15, r24	; 21
+break;	
+ 736:	08 95       	ret
+case DIO_U8_PORTD:
+SetBit(PORTD,DIO_U8_Pin);
+ 738:	22 b3       	in	r18, 0x12	; 18
+ 73a:	81 e0       	ldi	r24, 0x01	; 1
+ 73c:	90 e0       	ldi	r25, 0x00	; 0
+ 73e:	02 c0       	rjmp	.+4      	; 0x744 <DIO_Void_SetPin+0x64>
+ 740:	88 0f       	add	r24, r24
+ 742:	99 1f       	adc	r25, r25
+ 744:	6a 95       	dec	r22
+ 746:	e2 f7       	brpl	.-8      	; 0x740 <DIO_Void_SetPin+0x60>
+ 748:	82 2b       	or	r24, r18
+ 74a:	82 bb       	out	0x12, r24	; 18
+ 74c:	08 95       	ret
+
+0000074e <DIO_Void_ClearPin>:
+
+}
+/*************************************/
+void DIO_Void_ClearPin(u8 DIO_U8_PORT , u8 DIO_U8_Pin) {
+
+	switch(DIO_U8_PORT){
+ 74e:	86 30       	cpi	r24, 0x06	; 6
+ 750:	a9 f0       	breq	.+42     	; 0x77c <DIO_Void_ClearPin+0x2e>
+ 752:	18 f4       	brcc	.+6      	; 0x75a <DIO_Void_ClearPin+0xc>
+ 754:	85 30       	cpi	r24, 0x05	; 5
+ 756:	31 f0       	breq	.+12     	; 0x764 <DIO_Void_ClearPin+0x16>
+ 758:	08 95       	ret
+ 75a:	87 30       	cpi	r24, 0x07	; 7
+ 75c:	d9 f0       	breq	.+54     	; 0x794 <DIO_Void_ClearPin+0x46>
+ 75e:	88 30       	cpi	r24, 0x08	; 8
+ 760:	29 f1       	breq	.+74     	; 0x7ac <DIO_Void_ClearPin+0x5e>
+ 762:	08 95       	ret
+		case DIO_U8_PORTA:
+		ClearBit(PORTA,DIO_U8_Pin);
+ 764:	2b b3       	in	r18, 0x1b	; 27
+ 766:	81 e0       	ldi	r24, 0x01	; 1
+ 768:	90 e0       	ldi	r25, 0x00	; 0
+ 76a:	02 c0       	rjmp	.+4      	; 0x770 <DIO_Void_ClearPin+0x22>
+ 76c:	88 0f       	add	r24, r24
+ 76e:	99 1f       	adc	r25, r25
+ 770:	6a 95       	dec	r22
+ 772:	e2 f7       	brpl	.-8      	; 0x76c <DIO_Void_ClearPin+0x1e>
+ 774:	80 95       	com	r24
+ 776:	82 23       	and	r24, r18
+ 778:	8b bb       	out	0x1b, r24	; 27
+		break;
+ 77a:	08 95       	ret
+		case DIO_U8_PORTB:
+		ClearBit(PORTB,DIO_U8_Pin);
+ 77c:	28 b3       	in	r18, 0x18	; 24
+ 77e:	81 e0       	ldi	r24, 0x01	; 1
+ 780:	90 e0       	ldi	r25, 0x00	; 0
+ 782:	02 c0       	rjmp	.+4      	; 0x788 <DIO_Void_ClearPin+0x3a>
+ 784:	88 0f       	add	r24, r24
+ 786:	99 1f       	adc	r25, r25
+ 788:	6a 95       	dec	r22
+ 78a:	e2 f7       	brpl	.-8      	; 0x784 <DIO_Void_ClearPin+0x36>
+ 78c:	80 95       	com	r24
+ 78e:	82 23       	and	r24, r18
+ 790:	88 bb       	out	0x18, r24	; 24
+		break;
+ 792:	08 95       	ret
+		case DIO_U8_PORTC:
+		ClearBit(PORTC,DIO_U8_Pin);
+ 794:	25 b3       	in	r18, 0x15	; 21
+ 796:	81 e0       	ldi	r24, 0x01	; 1
+ 798:	90 e0       	ldi	r25, 0x00	; 0
+ 79a:	02 c0       	rjmp	.+4      	; 0x7a0 <DIO_Void_ClearPin+0x52>
+ 79c:	88 0f       	add	r24, r24
+ 79e:	99 1f       	adc	r25, r25
+ 7a0:	6a 95       	dec	r22
+ 7a2:	e2 f7       	brpl	.-8      	; 0x79c <DIO_Void_ClearPin+0x4e>
+ 7a4:	80 95       	com	r24
+ 7a6:	82 23       	and	r24, r18
+ 7a8:	85 bb       	out	0x15, r24	; 21
+		break;
+ 7aa:	08 95       	ret
+		case DIO_U8_PORTD:
+		ClearBit(PORTD,DIO_U8_Pin);
+ 7ac:	22 b3       	in	r18, 0x12	; 18
+ 7ae:	81 e0       	ldi	r24, 0x01	; 1
+ 7b0:	90 e0       	ldi	r25, 0x00	; 0
+ 7b2:	02 c0       	rjmp	.+4      	; 0x7b8 <DIO_Void_ClearPin+0x6a>
+ 7b4:	88 0f       	add	r24, r24
+ 7b6:	99 1f       	adc	r25, r25
+ 7b8:	6a 95       	dec	r22
+ 7ba:	e2 f7       	brpl	.-8      	; 0x7b4 <DIO_Void_ClearPin+0x66>
+ 7bc:	80 95       	com	r24
+ 7be:	82 23       	and	r24, r18
+ 7c0:	82 bb       	out	0x12, r24	; 18
+ 7c2:	08 95       	ret
+
+000007c4 <DIO_VoidGetPinValue>:
+}
+/**********************************************/
+u8 DIO_VoidGetPinValue(u8 DIO_U8_PORT,u8 DIO_U8_Pin){
+	
+	
+	switch(DIO_U8_PORT){
+ 7c4:	86 30       	cpi	r24, 0x06	; 6
+ 7c6:	91 f0       	breq	.+36     	; 0x7ec <DIO_VoidGetPinValue+0x28>
+ 7c8:	18 f4       	brcc	.+6      	; 0x7d0 <DIO_VoidGetPinValue+0xc>
+ 7ca:	85 30       	cpi	r24, 0x05	; 5
+ 7cc:	31 f0       	breq	.+12     	; 0x7da <DIO_VoidGetPinValue+0x16>
+ 7ce:	29 c0       	rjmp	.+82     	; 0x822 <__DATA_REGION_LENGTH__+0x22>
+ 7d0:	87 30       	cpi	r24, 0x07	; 7
+ 7d2:	a9 f0       	breq	.+42     	; 0x7fe <DIO_VoidGetPinValue+0x3a>
+ 7d4:	88 30       	cpi	r24, 0x08	; 8
+ 7d6:	e1 f0       	breq	.+56     	; 0x810 <__DATA_REGION_LENGTH__+0x10>
+ 7d8:	24 c0       	rjmp	.+72     	; 0x822 <__DATA_REGION_LENGTH__+0x22>
+		case DIO_U8_PORTA:
+		return GetBit(PINA,DIO_U8_Pin);
+ 7da:	89 b3       	in	r24, 0x19	; 25
+ 7dc:	90 e0       	ldi	r25, 0x00	; 0
+ 7de:	02 c0       	rjmp	.+4      	; 0x7e4 <DIO_VoidGetPinValue+0x20>
+ 7e0:	95 95       	asr	r25
+ 7e2:	87 95       	ror	r24
+ 7e4:	6a 95       	dec	r22
+ 7e6:	e2 f7       	brpl	.-8      	; 0x7e0 <DIO_VoidGetPinValue+0x1c>
+ 7e8:	81 70       	andi	r24, 0x01	; 1
+ 7ea:	08 95       	ret
+		break;
+		case DIO_U8_PORTB:
+		return GetBit(PINB,DIO_U8_Pin);
+ 7ec:	86 b3       	in	r24, 0x16	; 22
+ 7ee:	90 e0       	ldi	r25, 0x00	; 0
+ 7f0:	02 c0       	rjmp	.+4      	; 0x7f6 <DIO_VoidGetPinValue+0x32>
+ 7f2:	95 95       	asr	r25
+ 7f4:	87 95       	ror	r24
+ 7f6:	6a 95       	dec	r22
+ 7f8:	e2 f7       	brpl	.-8      	; 0x7f2 <DIO_VoidGetPinValue+0x2e>
+ 7fa:	81 70       	andi	r24, 0x01	; 1
+ 7fc:	08 95       	ret
+		break;
+		case DIO_U8_PORTC:
+		return GetBit(PINC,DIO_U8_Pin);
+ 7fe:	83 b3       	in	r24, 0x13	; 19
+ 800:	90 e0       	ldi	r25, 0x00	; 0
+ 802:	02 c0       	rjmp	.+4      	; 0x808 <__DATA_REGION_LENGTH__+0x8>
+ 804:	95 95       	asr	r25
+ 806:	87 95       	ror	r24
+ 808:	6a 95       	dec	r22
+ 80a:	e2 f7       	brpl	.-8      	; 0x804 <__DATA_REGION_LENGTH__+0x4>
+ 80c:	81 70       	andi	r24, 0x01	; 1
+ 80e:	08 95       	ret
+		break;
+		case DIO_U8_PORTD:
+		return GetBit(PIND,DIO_U8_Pin);
+ 810:	80 b3       	in	r24, 0x10	; 16
+ 812:	90 e0       	ldi	r25, 0x00	; 0
+ 814:	02 c0       	rjmp	.+4      	; 0x81a <__DATA_REGION_LENGTH__+0x1a>
+ 816:	95 95       	asr	r25
+ 818:	87 95       	ror	r24
+ 81a:	6a 95       	dec	r22
+ 81c:	e2 f7       	brpl	.-8      	; 0x816 <__DATA_REGION_LENGTH__+0x16>
+ 81e:	81 70       	andi	r24, 0x01	; 1
+ 820:	08 95       	ret
+		break;
+	
+}
+}
+ 822:	08 95       	ret
+
+00000824 <DIO_VoidSetPortValue>:
+/**************************************************/
+void DIO_VoidSetPortValue(u8 DIO_U8_PORT, u8 DIO_U8_Val){
+	
+	switch(DIO_U8_PORT){
+ 824:	86 30       	cpi	r24, 0x06	; 6
+ 826:	59 f0       	breq	.+22     	; 0x83e <DIO_VoidSetPortValue+0x1a>
+ 828:	18 f4       	brcc	.+6      	; 0x830 <DIO_VoidSetPortValue+0xc>
+ 82a:	85 30       	cpi	r24, 0x05	; 5
+ 82c:	31 f0       	breq	.+12     	; 0x83a <DIO_VoidSetPortValue+0x16>
+ 82e:	08 95       	ret
+ 830:	87 30       	cpi	r24, 0x07	; 7
+ 832:	39 f0       	breq	.+14     	; 0x842 <DIO_VoidSetPortValue+0x1e>
+ 834:	88 30       	cpi	r24, 0x08	; 8
+ 836:	39 f0       	breq	.+14     	; 0x846 <DIO_VoidSetPortValue+0x22>
+ 838:	08 95       	ret
+		case DIO_U8_PORTA:
+	    PORTA=DIO_U8_Val;
+ 83a:	6b bb       	out	0x1b, r22	; 27
+		break;
+ 83c:	08 95       	ret
+		case DIO_U8_PORTB:
+	    PORTB=DIO_U8_Val;
+ 83e:	68 bb       	out	0x18, r22	; 24
+		break;
+ 840:	08 95       	ret
+		case DIO_U8_PORTC:
+		PORTC=DIO_U8_Val;
+ 842:	65 bb       	out	0x15, r22	; 21
+		break;
+ 844:	08 95       	ret
+		case DIO_U8_PORTD:
+		PORTD=DIO_U8_Val;
+ 846:	62 bb       	out	0x12, r22	; 18
+ 848:	08 95       	ret
+
+0000084a <LCD_voidSendData>:
+
+	itoa(Local_u32Data,Arr_String,10);
+	
+   LCD_voidSendString(Arr_String);
+	
+}
+ 84a:	cf 93       	push	r28
+ 84c:	c8 2f       	mov	r28, r24
+ 84e:	65 e0       	ldi	r22, 0x05	; 5
+ 850:	85 e0       	ldi	r24, 0x05	; 5
+ 852:	0e 94 70 03 	call	0x6e0	; 0x6e0 <DIO_Void_SetPin>
+ 856:	66 e0       	ldi	r22, 0x06	; 6
+ 858:	85 e0       	ldi	r24, 0x05	; 5
+ 85a:	0e 94 a7 03 	call	0x74e	; 0x74e <DIO_Void_ClearPin>
+ 85e:	6c 2f       	mov	r22, r28
+ 860:	60 7f       	andi	r22, 0xF0	; 240
+ 862:	86 e0       	ldi	r24, 0x06	; 6
+ 864:	0e 94 12 04 	call	0x824	; 0x824 <DIO_VoidSetPortValue>
+ 868:	67 e0       	ldi	r22, 0x07	; 7
+ 86a:	85 e0       	ldi	r24, 0x05	; 5
+ 86c:	0e 94 70 03 	call	0x6e0	; 0x6e0 <DIO_Void_SetPin>
+ 870:	8f e9       	ldi	r24, 0x9F	; 159
+ 872:	9f e0       	ldi	r25, 0x0F	; 15
+ 874:	01 97       	sbiw	r24, 0x01	; 1
+ 876:	f1 f7       	brne	.-4      	; 0x874 <__stack+0x15>
+ 878:	00 c0       	rjmp	.+0      	; 0x87a <__stack+0x1b>
+ 87a:	00 00       	nop
+ 87c:	67 e0       	ldi	r22, 0x07	; 7
+ 87e:	85 e0       	ldi	r24, 0x05	; 5
+ 880:	0e 94 a7 03 	call	0x74e	; 0x74e <DIO_Void_ClearPin>
+ 884:	8f e9       	ldi	r24, 0x9F	; 159
+ 886:	9f e0       	ldi	r25, 0x0F	; 15
+ 888:	01 97       	sbiw	r24, 0x01	; 1
+ 88a:	f1 f7       	brne	.-4      	; 0x888 <__stack+0x29>
+ 88c:	00 c0       	rjmp	.+0      	; 0x88e <__stack+0x2f>
+ 88e:	00 00       	nop
+ 890:	6c 2f       	mov	r22, r28
+ 892:	62 95       	swap	r22
+ 894:	60 7f       	andi	r22, 0xF0	; 240
+ 896:	86 e0       	ldi	r24, 0x06	; 6
+ 898:	0e 94 12 04 	call	0x824	; 0x824 <DIO_VoidSetPortValue>
+ 89c:	67 e0       	ldi	r22, 0x07	; 7
+ 89e:	85 e0       	ldi	r24, 0x05	; 5
+ 8a0:	0e 94 70 03 	call	0x6e0	; 0x6e0 <DIO_Void_SetPin>
+ 8a4:	8f e9       	ldi	r24, 0x9F	; 159
+ 8a6:	9f e0       	ldi	r25, 0x0F	; 15
+ 8a8:	01 97       	sbiw	r24, 0x01	; 1
+ 8aa:	f1 f7       	brne	.-4      	; 0x8a8 <__stack+0x49>
+ 8ac:	00 c0       	rjmp	.+0      	; 0x8ae <__stack+0x4f>
+ 8ae:	00 00       	nop
+ 8b0:	67 e0       	ldi	r22, 0x07	; 7
+ 8b2:	85 e0       	ldi	r24, 0x05	; 5
+ 8b4:	0e 94 a7 03 	call	0x74e	; 0x74e <DIO_Void_ClearPin>
+ 8b8:	8f e9       	ldi	r24, 0x9F	; 159
+ 8ba:	9f e0       	ldi	r25, 0x0F	; 15
+ 8bc:	01 97       	sbiw	r24, 0x01	; 1
+ 8be:	f1 f7       	brne	.-4      	; 0x8bc <__stack+0x5d>
+ 8c0:	00 c0       	rjmp	.+0      	; 0x8c2 <__stack+0x63>
+ 8c2:	00 00       	nop
+ 8c4:	cf 91       	pop	r28
+ 8c6:	08 95       	ret
+
+000008c8 <LCD_voidSendCommand>:
+ 8c8:	cf 93       	push	r28
+ 8ca:	c8 2f       	mov	r28, r24
+ 8cc:	65 e0       	ldi	r22, 0x05	; 5
+ 8ce:	85 e0       	ldi	r24, 0x05	; 5
+ 8d0:	0e 94 a7 03 	call	0x74e	; 0x74e <DIO_Void_ClearPin>
+ 8d4:	66 e0       	ldi	r22, 0x06	; 6
+ 8d6:	85 e0       	ldi	r24, 0x05	; 5
+ 8d8:	0e 94 a7 03 	call	0x74e	; 0x74e <DIO_Void_ClearPin>
+ 8dc:	6c 2f       	mov	r22, r28
+ 8de:	60 7f       	andi	r22, 0xF0	; 240
+ 8e0:	86 e0       	ldi	r24, 0x06	; 6
+ 8e2:	0e 94 12 04 	call	0x824	; 0x824 <DIO_VoidSetPortValue>
+ 8e6:	67 e0       	ldi	r22, 0x07	; 7
+ 8e8:	85 e0       	ldi	r24, 0x05	; 5
+ 8ea:	0e 94 70 03 	call	0x6e0	; 0x6e0 <DIO_Void_SetPin>
+ 8ee:	8f e9       	ldi	r24, 0x9F	; 159
+ 8f0:	9f e0       	ldi	r25, 0x0F	; 15
+ 8f2:	01 97       	sbiw	r24, 0x01	; 1
+ 8f4:	f1 f7       	brne	.-4      	; 0x8f2 <LCD_voidSendCommand+0x2a>
+ 8f6:	00 c0       	rjmp	.+0      	; 0x8f8 <LCD_voidSendCommand+0x30>
+ 8f8:	00 00       	nop
+ 8fa:	67 e0       	ldi	r22, 0x07	; 7
+ 8fc:	85 e0       	ldi	r24, 0x05	; 5
+ 8fe:	0e 94 a7 03 	call	0x74e	; 0x74e <DIO_Void_ClearPin>
+ 902:	8f e9       	ldi	r24, 0x9F	; 159
+ 904:	9f e0       	ldi	r25, 0x0F	; 15
+ 906:	01 97       	sbiw	r24, 0x01	; 1
+ 908:	f1 f7       	brne	.-4      	; 0x906 <LCD_voidSendCommand+0x3e>
+ 90a:	00 c0       	rjmp	.+0      	; 0x90c <LCD_voidSendCommand+0x44>
+ 90c:	00 00       	nop
+ 90e:	6c 2f       	mov	r22, r28
+ 910:	62 95       	swap	r22
+ 912:	60 7f       	andi	r22, 0xF0	; 240
+ 914:	86 e0       	ldi	r24, 0x06	; 6
+ 916:	0e 94 12 04 	call	0x824	; 0x824 <DIO_VoidSetPortValue>
+ 91a:	67 e0       	ldi	r22, 0x07	; 7
+ 91c:	85 e0       	ldi	r24, 0x05	; 5
+ 91e:	0e 94 70 03 	call	0x6e0	; 0x6e0 <DIO_Void_SetPin>
+ 922:	8f e9       	ldi	r24, 0x9F	; 159
+ 924:	9f e0       	ldi	r25, 0x0F	; 15
+ 926:	01 97       	sbiw	r24, 0x01	; 1
+ 928:	f1 f7       	brne	.-4      	; 0x926 <LCD_voidSendCommand+0x5e>
+ 92a:	00 c0       	rjmp	.+0      	; 0x92c <LCD_voidSendCommand+0x64>
+ 92c:	00 00       	nop
+ 92e:	67 e0       	ldi	r22, 0x07	; 7
+ 930:	85 e0       	ldi	r24, 0x05	; 5
+ 932:	0e 94 a7 03 	call	0x74e	; 0x74e <DIO_Void_ClearPin>
+ 936:	8f e9       	ldi	r24, 0x9F	; 159
+ 938:	9f e0       	ldi	r25, 0x0F	; 15
+ 93a:	01 97       	sbiw	r24, 0x01	; 1
+ 93c:	f1 f7       	brne	.-4      	; 0x93a <LCD_voidSendCommand+0x72>
+ 93e:	00 c0       	rjmp	.+0      	; 0x940 <LCD_voidSendCommand+0x78>
+ 940:	00 00       	nop
+ 942:	cf 91       	pop	r28
+ 944:	08 95       	ret
+
+00000946 <LCD_Void_Init>:
+ 946:	2f ef       	ldi	r18, 0xFF	; 255
+ 948:	89 ef       	ldi	r24, 0xF9	; 249
+ 94a:	90 e0       	ldi	r25, 0x00	; 0
+ 94c:	21 50       	subi	r18, 0x01	; 1
+ 94e:	80 40       	sbci	r24, 0x00	; 0
+ 950:	90 40       	sbci	r25, 0x00	; 0
+ 952:	e1 f7       	brne	.-8      	; 0x94c <LCD_Void_Init+0x6>
+ 954:	00 c0       	rjmp	.+0      	; 0x956 <LCD_Void_Init+0x10>
+ 956:	00 00       	nop
+ 958:	83 e3       	ldi	r24, 0x33	; 51
+ 95a:	0e 94 64 04 	call	0x8c8	; 0x8c8 <LCD_voidSendCommand>
+ 95e:	82 e3       	ldi	r24, 0x32	; 50
+ 960:	0e 94 64 04 	call	0x8c8	; 0x8c8 <LCD_voidSendCommand>
+ 964:	88 e2       	ldi	r24, 0x28	; 40
+ 966:	0e 94 64 04 	call	0x8c8	; 0x8c8 <LCD_voidSendCommand>
+ 96a:	8c e0       	ldi	r24, 0x0C	; 12
+ 96c:	0e 94 64 04 	call	0x8c8	; 0x8c8 <LCD_voidSendCommand>
+ 970:	86 e0       	ldi	r24, 0x06	; 6
+ 972:	0e 94 64 04 	call	0x8c8	; 0x8c8 <LCD_voidSendCommand>
+ 976:	81 e0       	ldi	r24, 0x01	; 1
+ 978:	0e 94 64 04 	call	0x8c8	; 0x8c8 <LCD_voidSendCommand>
+ 97c:	08 95       	ret
+
+0000097e <LCD_voidClearScreen>:
+ 97e:	81 e0       	ldi	r24, 0x01	; 1
+ 980:	0e 94 64 04 	call	0x8c8	; 0x8c8 <LCD_voidSendCommand>
+ 984:	08 95       	ret
+
+00000986 <LCD_voidSendString>:
+ 986:	0f 93       	push	r16
+ 988:	1f 93       	push	r17
+ 98a:	cf 93       	push	r28
+ 98c:	8c 01       	movw	r16, r24
+ 98e:	c0 e0       	ldi	r28, 0x00	; 0
+ 990:	03 c0       	rjmp	.+6      	; 0x998 <LCD_voidSendString+0x12>
+ 992:	0e 94 25 04 	call	0x84a	; 0x84a <LCD_voidSendData>
+ 996:	cf 5f       	subi	r28, 0xFF	; 255
+ 998:	f8 01       	movw	r30, r16
+ 99a:	ec 0f       	add	r30, r28
+ 99c:	f1 1d       	adc	r31, r1
+ 99e:	80 81       	ld	r24, Z
+ 9a0:	81 11       	cpse	r24, r1
+ 9a2:	f7 cf       	rjmp	.-18     	; 0x992 <LCD_voidSendString+0xc>
+ 9a4:	cf 91       	pop	r28
+ 9a6:	1f 91       	pop	r17
+ 9a8:	0f 91       	pop	r16
+ 9aa:	08 95       	ret
+
+000009ac <LCD_voidSetCursor>:
+
+
+void LCD_voidSetCursor(u8 Local_u8Row , u8 Local_u8Column)
+{
+	u8 Local_u8Address=0x00;
+	switch(Local_u8Row)
+ 9ac:	88 23       	and	r24, r24
+ 9ae:	19 f0       	breq	.+6      	; 0x9b6 <LCD_voidSetCursor+0xa>
+ 9b0:	81 30       	cpi	r24, 0x01	; 1
+ 9b2:	21 f0       	breq	.+8      	; 0x9bc <LCD_voidSetCursor+0x10>
+ 9b4:	06 c0       	rjmp	.+12     	; 0x9c2 <LCD_voidSetCursor+0x16>
+	{
+		case 0: 
+			Local_u8Address = 0x80 + Local_u8Column;
+ 9b6:	80 e8       	ldi	r24, 0x80	; 128
+ 9b8:	86 0f       	add	r24, r22
+			break;
+ 9ba:	04 c0       	rjmp	.+8      	; 0x9c4 <LCD_voidSetCursor+0x18>
+		case 1:
+			Local_u8Address = 0x80 + 0x40 + Local_u8Column;
+ 9bc:	80 ec       	ldi	r24, 0xC0	; 192
+ 9be:	86 0f       	add	r24, r22
+			break;
+ 9c0:	01 c0       	rjmp	.+2      	; 0x9c4 <LCD_voidSetCursor+0x18>
+}
+
+
+void LCD_voidSetCursor(u8 Local_u8Row , u8 Local_u8Column)
+{
+	u8 Local_u8Address=0x00;
+ 9c2:	80 e0       	ldi	r24, 0x00	; 0
+		case 1:
+			Local_u8Address = 0x80 + 0x40 + Local_u8Column;
+			break;
+	}
+	
+	LCD_voidSendCommand(Local_u8Address);
+ 9c4:	0e 94 64 04 	call	0x8c8	; 0x8c8 <LCD_voidSendCommand>
+ 9c8:	8f e9       	ldi	r24, 0x9F	; 159
+ 9ca:	9f e0       	ldi	r25, 0x0F	; 15
+ 9cc:	01 97       	sbiw	r24, 0x01	; 1
+ 9ce:	f1 f7       	brne	.-4      	; 0x9cc <LCD_voidSetCursor+0x20>
+ 9d0:	00 c0       	rjmp	.+0      	; 0x9d2 <LCD_voidSetCursor+0x26>
+ 9d2:	00 00       	nop
+ 9d4:	08 95       	ret
+
+000009d6 <main>:
+int main(void)
+{ 
+	
+
+	
+ valve_initialization();
+ 9d6:	0e 94 34 02 	call	0x468	; 0x468 <valve_initialization>
+		
+
+    while (1) 
+    {
+  valve_operation();						
+ 9da:	0e 94 45 02 	call	0x48a	; 0x48a <valve_operation>
+ 9de:	fd cf       	rjmp	.-6      	; 0x9da <main+0x4>
+
+000009e0 <__tablejump2__>:
+ 9e0:	ee 0f       	add	r30, r30
+ 9e2:	ff 1f       	adc	r31, r31
+ 9e4:	05 90       	lpm	r0, Z+
+ 9e6:	f4 91       	lpm	r31, Z
+ 9e8:	e0 2d       	mov	r30, r0
+ 9ea:	09 94       	ijmp
+
+000009ec <_exit>:
+ 9ec:	f8 94       	cli
+
+000009ee <__stop_program>:
+ 9ee:	ff cf       	rjmp	.-2      	; 0x9ee <__stop_program>
